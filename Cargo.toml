@@ -1,0 +1,20 @@
+[package]
+name = "reloader-plugin"
+version = "0.1.0"
+edition = "2021"
+authors = ["David Dunwoody <david.dunwoody@gmail.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+xplm = { git = "https://github.com/ddunwoody/rust-xplm.git" }
+xplm-sys = { git = "https://github.com/ddunwoody/xplm-sys.git" }
+
+[profile.release]
+lto = true
+strip = true
+opt-level = 3
+panic = 'abort'
+codegen-units = 1
+
