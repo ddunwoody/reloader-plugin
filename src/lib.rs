@@ -60,11 +60,9 @@ impl Plugin for ReloaderPlugin {
 struct ReloadCommandHandler;
 
 impl CommandHandler for ReloadCommandHandler {
-    fn command_begin(&mut self) {
-        unsafe { XPLMReloadPlugins() }
+    fn command_begin(&mut self) -> bool {
+        unsafe { XPLMReloadPlugins(); false }
     }
-    fn command_continue(&mut self) {}
-    fn command_end(&mut self) {}
 }
 
 xplane_plugin!(ReloaderPlugin);
